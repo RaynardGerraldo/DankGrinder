@@ -12,7 +12,6 @@ import random
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.keys import Keys
 
-
 driver = webdriver.Firefox()
 driver.get("http://discord.com")
 
@@ -35,32 +34,31 @@ def login_qr(driver):
 cmd_list = ["pls fish","pls dig","pls hunt"]
 cmd_list2 = ["pls crime","pls search"]
 
-
+@lru_cache
 def send(driver,input_element): 
-    buttons = []
     for cmd in cmd_list:
         action = ActionChains(driver)
         action.move_to_element(input_element).send_keys(cmd).key_down(Keys.ENTER).perform()
 
     crime(driver,input_element)
     search(driver,input_element)
-    time.sleep(30)
+    time.sleep(35)
     send(driver,input_element)
-    
+
 def crime(driver,input_element):
     action = ActionChains(driver)
-    action.move_to_element(input_element).send_keys("pls crime").key_down(Keys.ENTER).perform()
         
-    wait_buttons = WebDriverWait(driver,20).until(EC.presence_of_element_located((By.CLASS_NAME, "container-1ov-mD")))
+    wait_buttons = WebDriverWait(driver,20).until(EC.presence_of_element_located((By.CLASS_NAME, "container-1v9gV9")))
 
-    click_button = ["boredom","identity theft","fraud","murder","tax evasion","shoplifting","vandalism","drug distribution","cyber bullying"]
+    click_button = ["boredom","identity theft","fraud","murder","tax evasion","shoplifting","vandalism","drug distribution","cyber bullying","arson"]
           
     random.shuffle(click_button)
          
     time.sleep(0.8)
+    action.move_to_element(input_element).send_keys("pls crime").key_down(Keys.ENTER).perform()
     for click in click_button:
         try:
-           wait_button = WebDriverWait(driver,1.5).until(EC.presence_of_element_located((By.XPATH, f"//button[@class='component-1IAYeC button-38aScr lookFilled-1Gx00P colorBrand-3pXr91 sizeSmall-2cSMqn grow-q77ONN' and contains(.,'{click}')]")))
+           wait_button = WebDriverWait(driver,1).until(EC.presence_of_element_located((By.XPATH, f"//button[@class='component-1IAYeC button-38aScr lookFilled-1Gx00P colorBrand-3pXr91 sizeSmall-2cSMqn grow-q77ONN' and contains(.,'{click}')]")))
 
            elm = driver.find_element_by_xpath(f"//button[@class='component-1IAYeC button-38aScr lookFilled-1Gx00P colorBrand-3pXr91 sizeSmall-2cSMqn grow-q77ONN' and contains(.,'{click}')]")
 
@@ -74,18 +72,19 @@ def crime(driver,input_element):
 def search(driver,input_element):
     action = ActionChains(driver)
     action.move_to_element(input_element).send_keys("bot").key_down(Keys.ENTER).perform()
-    action.move_to_element(input_element).send_keys("pls search").key_down(Keys.ENTER).perform()
     
-    wait_buttons = WebDriverWait(driver,20).until(EC.presence_of_element_located((By.CLASS_NAME, "container-1ov-mD")))
+    wait_buttons = WebDriverWait(driver,20).until(EC.presence_of_element_located((By.CLASS_NAME, "container-1v9gV9")))
 
-    click_button = ["mailbox","pocket","bushes","vacuum","glovebox","grass","van","tree","fridge","area 51","bus","bank","dog","shoe","washer","mels room","sewer","uber"]
+    click_button = ["mailbox","pocket","bushes","vacuum","glovebox","grass","van","tree","fridge","area51","bus","bank","dog","shoe","washer","mels room","sewer","uber","dumpster","crawlspace","who asked","garage","air"]
 
     random.shuffle(click_button)
 
     time.sleep(0.8)
+    action.move_to_element(input_element).send_keys("pls search").key_down(Keys.ENTER).perform()
+
     for click in click_button:
         try:
-           wait_button = WebDriverWait(driver,1.5).until(EC.presence_of_element_located((By.XPATH, f"//button[@class='component-1IAYeC button-38aScr lookFilled-1Gx00P colorBrand-3pXr91 sizeSmall-2cSMqn grow-q77ONN' and contains(.,'{click}')]")))
+           wait_button = WebDriverWait(driver,1.2).until(EC.presence_of_element_located((By.XPATH, f"//button[@class='component-1IAYeC button-38aScr lookFilled-1Gx00P colorBrand-3pXr91 sizeSmall-2cSMqn grow-q77ONN' and contains(.,'{click}')]")))
 
            elm = driver.find_element_by_xpath(f"//button[@class='component-1IAYeC button-38aScr lookFilled-1Gx00P colorBrand-3pXr91 sizeSmall-2cSMqn grow-q77ONN' and contains(.,'{click}')]")
 
