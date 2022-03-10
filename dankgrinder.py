@@ -34,7 +34,6 @@ def login_qr(driver):
 cmd_list = ["pls fish","pls dig","pls hunt"]
 cmd_list2 = ["pls crime","pls search"]
 
-@lru_cache
 def send(driver,input_element): 
     for cmd in cmd_list:
         action = ActionChains(driver)
