@@ -94,7 +94,6 @@ login_qr(driver)
 input_elm = WebDriverWait(driver,20).until(EC.presence_of_element_located((By.XPATH, "/html/body/div[1]/div[2]/div/div[2]/div/div/div/div[2]/div[2]/div[2]/main/form/div[1]/div/div/div[1]/div/div[3]/div[2]/div")))
 
 input_element = driver.find_element_by_xpath("/html/body/div[1]/div[2]/div/div[2]/div/div/div/div[2]/div[2]/div[2]/main/form/div[1]/div/div/div[1]/div/div[3]/div[2]")
-bg_element = driver.find_element_by_class_name("chatContent-3KubbW")
 
 for i in range(tries):
     send(driver,input_element)
@@ -103,5 +102,5 @@ for i in range(tries):
     time.sleep(2)
     crime(driver,input_element)
    	
-	print("Cooldown....")
+    print("Cooldown....")
     time.sleep(35)
