@@ -9,3 +9,6 @@ dank memer automation bot
 5. Click 1 when your in channel, done!
 
 works for fish,dig,hunt,crime,search
+
+# Dependencies
+Selenium `pip install selenium`
